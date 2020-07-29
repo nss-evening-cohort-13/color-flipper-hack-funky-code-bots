@@ -160,6 +160,7 @@ colorArrayHex = [
 
 ];
 
+
 const handleButtonClick = (e) => {
   const buttonId = e.target.id;  
 }
@@ -176,3 +177,14 @@ const simpleBuilder = (simpArray) => {
     domString += ``
   }
 }
+
+const colorFlipper = () => {
+    return colorArray[i].hex[Math.floor(Math.random() * colorArraySimple.length)];
+}
+
+const init = () => {
+    console.log(colorFlipper());
+}
+
+init();
+
