@@ -1,6 +1,6 @@
 "use strict"
 
-colorArraySimple = [
+const colorArraySimple = [
     {
         colorName: 'Flame',
         hexCode: 'E53D00', 
@@ -57,8 +57,8 @@ colorArraySimple = [
     },
 
     {
-        colorName: 'Dark Slate Gray'
-        hexCode: '1A5E63'
+        colorName: 'Dark Slate Gray',
+        hexCode: '1A5E63',
     },
     
     {
@@ -81,7 +81,7 @@ colorArraySimple = [
 
 ];
 
-colorArrayHex = [
+const colorArrayHex = [
     {
         colorName: 'Honeydew',
         hexCode: 'DFF8EB',
@@ -144,8 +144,8 @@ colorArrayHex = [
     },
 
     {
-        colorName: 'Green Yellow Crayola'
-        hexCode: 'F6F5AE'
+        colorName: 'Green Yellow Crayola',
+        hexCode: 'F6F5AE',
     },
 
     {
@@ -161,30 +161,35 @@ colorArrayHex = [
 ];
 
 
-const handleButtonClick = (e) => {
-  const buttonId = e.target.id;  
+const handleButtonClick = () => {
+
+  const colorFlipper = (array) => {
+  return array[Math.floor(Math.random() * array.length)].hexCode;
 }
 
-const printToDom = (divId, textToPrint) => {
-  const selectedDiv = document.getElementById(divId);
-  selectedDiv.innerHTML = textToPrint;
-}
-
-const simpleBuilder = (simpArray) => {
-  let domString = '';
-
-  for (let i = 0; i < simpArray.length; i++) {
-    domString += ``
+  document.querySelector('body').style.backgroundColor = `#${colorFlipper(colorArraySimple)}`;
   }
+
+
+// const printToDom = (divId, textToPrint) => {
+//   const selectedDiv = document.getElementById(divId);
+//   selectedDiv.innerHTML = textToPrint;
+// }
+
+// const simpleBuilder = () => {
+//   let domString = '';
+
+//   for (let i = 0; i < colorArraySimple.length; i++) {
+//     domString += `<h1>Background Color: ${colorArraySimple[i].colorName}}</h1>`
+//   }
+
+//   printToDom('color-label', domString);
+// }
+
+
+// }
+const buttonEvents = () => {
+    document.querySelector('#click-btn').addEventListener('click', handleButtonClick)
 }
 
-const colorFlipper = () => {
-    return colorArray[i].hex[Math.floor(Math.random() * colorArraySimple.length)];
-}
-
-const init = () => {
-    console.log(colorFlipper());
-}
-
-init();
-
+buttonEvents();
